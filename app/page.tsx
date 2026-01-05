@@ -27,7 +27,7 @@ const SoundCheck = () => {
   return (
     <section className="bg-gray-100 px-4 md:px-24 py-6">
       <h1 className="text-center text-xl font-bold mb-4 pt-2">
-        मंगरूळपीर नगर परिषद सार्वत्रिक निवडणूक-२०२५ डमी मतदान यंत्र
+        छत्रपती संभाजीनगर महानगरपालिका सार्वत्रिक निवडणूक - डमी मतदान यंत्र
       </h1>
 
       <div className="text-center mb-4 pt-2">
