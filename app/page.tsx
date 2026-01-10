@@ -34,7 +34,7 @@ const SoundCheck = () => {
   return (
     <section className="bg-gray-100 dark:bg-gray-900 px-4 md:px-24 py-6 text-black dark:text-white">
       <h1 className="text-center text-xl font-bold mb-4 pt-2">
-        पुणे महानगरपालिका सार्वत्रिक निवडणूक - २०२६ डमी मतदान यंत्र
+        छत्रपती संभाजीनगर महानगरपालिका सार्वत्रिक निवडणूक - २०२६ डमी मतदान यंत्र
       </h1>
 
       <div className="text-center mb-4 pt-2">
@@ -45,7 +45,7 @@ const SoundCheck = () => {
 
       <div className="text-center mb-4 pt-2">
         <span className="bg-yellow-200 text-green-800 font-bold px-4 py-2 inline-block rounded dark:bg-yellow-300">
-          भारतीय जनता पक्षाचे प्रभाग क्र. ९ (ड) चे अधिकृत उमेदवार
+  शिवसेना (शिंदे गट) पक्षाचे प्रभाग क्र. २ (अ) चे अधिकृत उमेदवार
         </span>
       </div>
 
@@ -84,7 +84,7 @@ const SoundCheck = () => {
                 </td>
 
                 <td className="border-2 border-gray-400 px-4 md:px-2 py-1 text-center font-bold text-sm min-w[110px] break-words">
-                  {index === 3 ? "बालवडकर लहु गजानन" : ""}
+                  {index ===  ? "रेणुका रविकांत पाचुंदे" : ""}
                 </td>
 
                 <td className="border-2 border-gray-400 px-2 md:px-1 py-1 text-center">
@@ -128,8 +128,8 @@ const SoundCheck = () => {
       </div>
 
       <h1 className="text-center text-xl font-bold mb-4 mt-6">
-        <span className="text-red-600">कमळ</span> या निशाणी समोरील बटन दाबून{" "}
-        <span className="text-red-600">बालवडकर लहु गजानन </span> यांना प्रचंड बहुमतांनी विजय करा.
+        <span className="text-red-600">धनुष्यबाण</span> या निशाणी समोरील बटन दाबून{" "}
+        <span className="text-red-600"> रेणुका रविकांत पाचुंदे </span> यांना प्रचंड बहुमतांनी विजय करा.
       </h1>
 
       <div className="text-center mb-4 pt-2">
