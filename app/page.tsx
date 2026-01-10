@@ -82,7 +82,7 @@ const SoundCheck = () => {
 
           <tbody>
             {[...Array(10)].map((_, index) => (
-              <tr key={index}>
+              <tr key={index} className="bg-[#FFFFFF]">
                 <td className="border-2 border-gray-400 text-center font-bold text-sm">
                   {toMarathi(index + 1)}
                 </td>
