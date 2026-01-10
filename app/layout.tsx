@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Demo Voteing System",
+  title: "RenukaTai Pachunde Dummy Vote",
   description: "Created By ARP Digital Solutions",
 };
 
