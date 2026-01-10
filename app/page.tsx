@@ -8,7 +8,6 @@ const SoundCheck = () => {
 
   const [activeRow, setActiveRow] = useState<number | null>(null);
 
-  // 👉 Convert English numbers → Marathi numbers
   const toMarathi = (num: number) =>
     num
       .toString()
@@ -51,7 +50,7 @@ const SoundCheck = () => {
 
       <div className="text-center mb-4 pt-2">
         <span className="bg-yellow-200 text-green-800 font-bold px-4 py-2 inline-block rounded dark:bg-yellow-300">
-         शिवसेना (शिंदे गट) पक्षाचे प्रभाग क्र. २ (अ) चे अधिकृत उमेदवार
+          शिवसेना (शिंदे गट) पक्षाचे प्रभाग क्र. २ (अ) चे अधिकृत उमेदवार
         </span>
       </div>
 
@@ -87,8 +86,13 @@ const SoundCheck = () => {
                   {toMarathi(index + 1)}
                 </td>
 
+                {/* ✅ ONLY CHANGE HERE */}
                 <td className="border-2 border-gray-400 text-center font-bold text-sm">
-                  {index === 4 ? "रेणुका रविकांत पाचुंदे" : ""}
+                  {index === 4
+                    ? "रेणुका रविकांत पाचुंदे"
+                    : index === 9
+                    ? "नोटा (NOTA)"
+                    : ""}
                 </td>
 
                 <td className="border-2 border-gray-400 text-center">
