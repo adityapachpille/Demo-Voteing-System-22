@@ -62,7 +62,7 @@ const SoundCheck = () => {
                 अनु. क्र.
               </th>
               <th className="border-2 border-gray-400 px-4 py-1 text-center text-xs font-bold min-w-[110px]">
-                नाव
+                उमेदवाराचे नाव
               </th>
               <th className="border-2 border-gray-400 px-2 py-1 text-center text-xs font-bold">
                 फोटो
