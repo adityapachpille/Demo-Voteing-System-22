@@ -6,121 +6,119 @@ const SoundCheck = () => {
   const otherButtonSoundRef = useRef<HTMLAudioElement | null>(null);
   const [activeRow, setActiveRow] = useState<number | null>(null);
 
+  // 👉 convert English numbers → Marathi numbers (ONLY addition)
+  const toMarathi = (num: number) =>
+    num
+      .toString()
+      .replace(/0/g, "०")
+      .replace(/1/g, "१")
+      .replace(/2/g, "२")
+      .replace(/3/g, "३")
+      .replace(/4/g, "४")
+      .replace(/5/g, "५")
+      .replace(/6/g, "६")
+      .replace(/7/g, "७")
+      .replace(/8/g, "८")
+      .replace(/9/g, "९");
+
   const playButtonSound = (index: number) => {
-    try {
-      buttonSoundRef.current?.play();
-    } catch (e) {
-      console.warn("sound play failed", e);
-    }
+    buttonSoundRef.current?.play();
     setActiveRow(index);
   };
 
   const playOtherButtonSound = (index: number) => {
-    try {
-      otherButtonSoundRef.current?.play();
-    } catch (e) {
-      console.warn("sound play failed", e);
-    }
+    otherButtonSoundRef.current?.play();
     setActiveRow(index);
   };
 
   return (
-    <section className="bg-gray-100 px-4 md:px-24 py-6">
+    <section className="bg-gray-100 dark:bg-gray-900 px-4 md:px-24 py-6 text-black dark:text-white">
       <h1 className="text-center text-xl font-bold mb-4 pt-2">
-        छत्रपती संभाजीनगर महानगरपालिका सार्वत्रिक निवडणूक - डमी मतदान यंत्र
+        पुणे महानगरपालिका सार्वत्रिक निवडणूक - २०२६ डमी मतदान यंत्र
       </h1>
 
       <div className="text-center mb-4 pt-2">
         <span className="bg-blue-700 font-bold text-white px-4 py-2 inline-block rounded-full">
-          डेमो मतदानासाठी कमळ निशाणी समोरील निळे बटन दबावे
+          डेमो मतदानासाठी कमळ निशाणी समोरील बटन दाबावे
         </span>
       </div>
 
       <div className="text-center mb-4 pt-2">
-        <span className="bg-yellow-200 text-green-800 font-bold px-4 py-2 inline-block rounded">
-          प्रभाग क्र. १५ (अ) चे अधिकृत उमेदवार
+        <span className="bg-yellow-200 text-green-800 font-bold px-4 py-2 inline-block rounded dark:bg-yellow-300">
+          भारतीय जनता पक्षाचे प्रभाग क्र. ९ (ड) चे अधिकृत उमेदवार
         </span>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border-2">
+      <div className="overflow-x-hidden">
+        <table className="w-full border-2 border-gray-400 dark:border-gray-600 table-auto md:table-fixed">
           <thead>
-            <tr className="bg-gray-100">
-              <th className="border-2 px-3 py-2 text-center">क्रमांक</th>
-              <th className="border-2 px-3 py-2 text-center">उमेदवाराचे नाव</th>
-              <th className="border-2 px-3 py-2 text-center">उमेदवार फोटो</th>
-              <th className="border-2 px-3 py-2 text-center">निशाणी</th>
-              <th className="border-2 px-3 py-2 text-center">बत्ती</th>
-              <th className="border-2 px-3 py-2 text-center">मतदान बटन</th>
+            <tr className="bg-gray-100 dark:bg-gray-800">
+              <th className="border-2 border-gray-400 w-10 px-2 md:px-1 py-1 text-center text-xs font-bold">
+                अनु. क्र.
+              </th>
+
+              <th className="border-2 border-gray-400 px-4 md:px-2 py-1 text-center text-xs font-bold min-w-[110px]">
+                नाव
+              </th>
+
+              <th className="border-2 border-gray-400 px-2 md:px-1 py-1 text-center text-xs font-bold">
+                फोटो
+              </th>
+              <th className="border-2 border-gray-400 px-2 md:px-1 py-1 text-center text-xs font-bold">
+                निशाणी
+              </th>
+              <th className="border-2 border-gray-400 px-2 md:px-1 py-1 text-center text-xs font-bold">
+                बत्ती
+              </th>
+              <th className="border-2 border-gray-400 px-2 md:px-1 py-1 text-center text-xs font-bold">
+                बटन
+              </th>
             </tr>
           </thead>
 
           <tbody>
-            {[...Array(9)].map((_, index) => (
-              <tr key={index}>
-                {/* Serial No */}
-                <td className="border-2 px-4 py-3 text-center font-bold">
-                  {index + 1}
+            {[...Array(10)].map((_, index) => (
+              <tr key={index} className="bg-[#9fdaeb] dark:bg-gray-800">
+                <td className="border-2 border-gray-400 w-10 px-2 md:px-1 py-1 text-center font-bold text-sm">
+                  {toMarathi(index + 1)}   {/* 👉 only this changed */}
                 </td>
 
-                {/* Candidate Name */}
-                <td className="border-2 px-4 py-3 text-center font-bold">
-                  {index === 4 ? "अर्जुन सिंह गौड" : index === 8 ? "नोटा" : ""}
+                <td className="border-2 border-gray-400 px-4 md:px-2 py-1 text-center font-bold text-sm min-w[110px] break-words">
+                  {index === 3 ? "बालवडकर लहु गजानन" : ""}
                 </td>
 
-                {/* Photo */}
-                <td className="border-2 px-4 py-2 text-center">
-                  {index === 4 ? (
-                    <img
-                      src="/user.png"
-                      className="w-12 h-12 mx-auto object-cover"
-                      alt="candidate"
-                    />
+                <td className="border-2 border-gray-400 px-2 md:px-1 py-1 text-center">
+                  {index === 3 ? (
+                    <img src="/user.png" className="w-12 h-12 mx-auto object-cover" />
                   ) : (
-                    <div className="w-12 h-12 mx-auto" />
+                    <div className="w-10 h-10 mx-auto" />
                   )}
                 </td>
 
-                {/* Symbol */}
-                <td className="border-2 px-4 py-3 text-center">
-                  {index === 4 ? (
-                    <img
-                      src="/symbol-bartan.png"
-                      className="w-12 h-12 mx-auto object-contain"
-                      alt="symbol"
-                    />
+                <td className="border-2 border-gray-400 px-2 md:px-1 py-1 text-center">
+                  {index === 3 ? (
+                    <img src="/symbol-bartan.png" className="w-10 h-10 mx-auto object-contain" />
                   ) : (
-                    <div className="w-12 h-12 mx-auto" />
+                    <div className="w-10 h-10 mx-auto" />
                   )}
                 </td>
 
-                {/* Bulb */}
-                <td className="border-2 px-4 py-3 text-center">
+                <td className="border-2 border-gray-400 px-2 md:px-1 py-1 text-center bg-white dark:bg-gray-800">
                   <div
-                    className={`w-6 h-6 rounded-full mx-auto ${
-                      activeRow === index ? "bg-red-600" : "bg-gray-300"
+                    className={`w-5 h-5 rounded-full mx-auto ${
+                      activeRow === index ? "bg-red-600" : "bg-gray-300 dark:bg-gray-500"
                     }`}
                   ></div>
                 </td>
 
-                {/* Button */}
-                <td className="border-2 px-4 py-3 text-center">
+                <td className="border-2 border-gray-400 px-2 md:px-1 py-1 text-center bg-white dark:bg-gray-800">
                   <button
                     onClick={() =>
-                      index === 4 || index === 8
-                        ? playButtonSound(index)
-                        : playOtherButtonSound(index)
+                      index === 3 ? playButtonSound(index) : playOtherButtonSound(index)
                     }
-                    className={`w-16 h-8 rounded-full ${
-                      index === 4 ? "bg-green-500" : "bg-blue-700"
+                    className={`rounded-full w-10 h-6 md:w-14 md:h-7 ${
+                      index === 3 ? "bg-green-500" : "bg-blue-700"
                     }`}
-                    aria-label={
-                      index === 4
-                        ? "Vote for अर्जुन"
-                        : index === 8
-                        ? "Vote for NOTA"
-                        : `Vote for candidate ${index + 1}`
-                    }
                   />
                 </td>
               </tr>
@@ -130,17 +128,16 @@ const SoundCheck = () => {
       </div>
 
       <h1 className="text-center text-xl font-bold mb-4 mt-6">
-        कमळ या निशाणी समोरील बटन दाबून अर्जुन सिंह गौड यांना प्रचंड बहुमतांनी
-        विजय करा.
+        <span className="text-red-600">कमळ</span> या निशाणी समोरील बटन दाबून{" "}
+        <span className="text-red-600">बालवडकर लहु गजानन </span> यांना प्रचंड बहुमतांनी विजय करा.
       </h1>
 
       <div className="text-center mb-4 pt-2">
         <span className="bg-yellow-200 text-green-800 font-bold px-4 py-2 inline-block rounded">
-          मतदान - मंगळवार दि. २ डिसेंबर २०२५ रोजी सकाळी ७ ते सायं ६ वाजे पर्यंत.
+          मतदान - गुरुवार, दि. १५ जानेवारी २०२६ सकाळी ७:३० ते सायंकाळी ५.३० वाजेपर्यंत.
         </span>
       </div>
 
-      {/* Audio */}
       <audio ref={buttonSoundRef} src="/sound1.mp3" />
       <audio ref={otherButtonSoundRef} src="/sound2.mp3" />
     </section>
